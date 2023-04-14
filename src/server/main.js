@@ -3,7 +3,7 @@ import server from "vite-express";
 
 import api from "./api/index.js";
 
-const port = 5800;
+const port = process.env.PORT || 3000;
 
 const app = express();
 
