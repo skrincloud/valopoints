@@ -1,0 +1,65 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 14px;
+
+  color-scheme: light dark;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #f6f6f6;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --accent: 124, 58, 237;
+  --accent-gradient: linear-gradient(
+    45deg,
+    rgb(var(--accent)),
+    #da62c4 30%,
+    white 60%
+  );
+}
+
+main {
+  margin: auto;
+  padding: 1.5rem;
+  max-width: 60ch;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+p {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  color: #444;
+}
+
+code {
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+  font-size: 0.875em;
+  font-weight: bold;
+  background: rgba(var(--accent), 12%);
+  color: rgb(var(--accent));
+  border-radius: 4px;
+  padding: 0.3em 0.45em;
+}
+
+strong {
+  color: rgb(var(--accent));
+}
+
+.text-gradient {
+  background-image: var(--accent-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 400%;
+  background-position: 0%;
+}
