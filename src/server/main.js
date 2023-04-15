@@ -12,8 +12,4 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", api);
 
-if (process.env.NODE_ENV === "production") {
-  app.listen(port);
-} else {
-  server.listen(app, port);
-}
+server.listen(app, port);
