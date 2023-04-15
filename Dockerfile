@@ -2,14 +2,23 @@ FROM node:18.16.0-alpine3.17
 
 WORKDIR /app
 
-COPY . .
+# Cache node dependencies
+COPY package.json /app/package.json
 
 RUN npm install
+
+# Cache client build
+COPY src/client /app/src/client
+COPY public /app/public
+COPY index.html /app/index.html
+COPY vite.config.js /app/vite.config.js
+
 RUN npm run build
+
+# Complete the files dump
+COPY . .
 
 EXPOSE 3000
 
-ENV PORT=3000
-
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "start" ]
 
