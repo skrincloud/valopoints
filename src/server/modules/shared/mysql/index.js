@@ -13,20 +13,20 @@ class MySQLDatabase {
   }
 
   async query(query, args){
-    const [rows, _] = await this.pool.query(query, args);
+    const [rows, _] = await this.pool.query(query, args)
     return rows;  
   }
 
   async ping() {
     try {
-     await this.query('SELECT 1');
+     await this.query('SELECT 1')
     } catch (err) {
       throw err;
     }
   }
   
   async close() {
-    await this.pool.end();
+    await this.pool.end()
   }
 }
 
