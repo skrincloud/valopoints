@@ -18,11 +18,11 @@ export function parse(): Environment {
 
   return {
     server: {
-      port: parseInt(process.env.PORT as string) || 3000,
+      port: Number(process.env.PORT) || 3000,
     },
     database: {
       host: process.env.DB_HOST,
-      port: parseInt(process.env.DB_PORT as string),
+      port: Number(process.env.DB_PORT),
       name: process.env.DB_NAME,
       user: process.env.DB_USER,
       password: process.env.DB_PASS,
