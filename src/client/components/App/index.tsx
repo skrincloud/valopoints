@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react'
+import { GetAllLeagues, League } from '../../../core'
+import { ApiLeagueRepository } from '../../infrastructure/api/league-repository'
+import Leagues from '../Leagues'
 
 import './App.css'
 
 function App() {
-  const [value, setValue] = useState<string>()
+  const [leagues, setLeagues] = useState<League[]>()
 
   useEffect(function () {
-    setValue('This is the application content')
-  })
+    const repository = new ApiLeagueRepository()
+    const getAllLeagues = new GetAllLeagues(repository)
+    getAllLeagues.execute().then(setLeagues)
+  }, [])
 
   return (
     <main>
@@ -16,7 +21,9 @@ function App() {
         <span className="text-gradient">Valopoints</span>
       </h1>
 
-      <p>{value}</p>
+      <br />
+
+      {leagues && <Leagues leagues={leagues} />}
     </main>
   )
 }
