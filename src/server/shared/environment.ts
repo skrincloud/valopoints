@@ -11,6 +11,9 @@ interface Environment {
     user?: string
     password?: string
   }
+  content: {
+    url?: string
+  }
 }
 
 export function parse(): Environment {
@@ -27,5 +30,8 @@ export function parse(): Environment {
       user: process.env.DB_USER,
       password: process.env.DB_PASS,
     },
+    content: {
+      url: process.env.CONTENT_URL,
+    }
   }
 }
