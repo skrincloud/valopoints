@@ -1,0 +1,37 @@
+.CompactCard {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  cursor: default;
+}
+
+.CompactCard--clickable {
+  cursor: pointer;
+}
+
+.CompactCard--clickable:hover {
+  background-color: var(--background-soft-color);
+  border-radius: 1rem;
+}
+
+.CompactCard__image {
+  width: 2rem;
+  height: 2rem;
+}
+
+.CompactCard__content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  flex: 1;
+}
+
+.CompactCard__subtitle {
+  font-size: 0.8rem;
+  color: #a0a0a0;
+}
+
+.CompactCard__action {
+  border: none;
+  cursor: pointer;
+}

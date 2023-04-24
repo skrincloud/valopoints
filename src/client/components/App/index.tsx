@@ -4,6 +4,7 @@ import { forge } from '../../dependencies'
 import Leagues from '../Leagues'
 
 import './App.css'
+import Card from '../ui/Card'
 
 const { leagueService } = forge()
 
@@ -32,7 +33,18 @@ function App() {
 
       <br />
 
-      <pre>{selectedLeague && JSON.stringify(selectedLeague, null, 2)}</pre>
+      {selectedLeague && (
+        <Card
+          key={selectedLeague.id}
+          title={selectedLeague.name}
+          subtitle="Liga seleccionada"
+          image={selectedLeague.image}
+          action={{
+            text: 'Cambiar',
+            onClick: () => {},
+          }}
+        />
+      )}
 
       {leagues && <Leagues leagues={leagues} onLeagueClick={onLeagueClick} />}
     </main>
