@@ -9,6 +9,7 @@ RUN npm install
 
 # Cache client build
 COPY src/client /app/src/client
+COPY src/core /app/src/core
 COPY public /app/public
 COPY index.html /app/index.html
 COPY tsconfig.json /app/tsconfig.json
