@@ -4,12 +4,12 @@ import { StorageRepository } from './infrastructure/browser/storage-repository'
 import { LocalRepository } from './infrastructure/common/local-repository'
 import { LeagueService } from './services/league-service'
 
-export interface Dependencies {
+export interface Container {
   getAllLeagues: GetAllLeagues
   leagueService: LeagueService
 }
 
-export function forge(): Dependencies {
+export function forge(): Container {
   const leagueRepository: LeagueRepository = new ApiLeagueRepository()
   const localRepository: LocalRepository = new StorageRepository()
 
