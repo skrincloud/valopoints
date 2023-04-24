@@ -12,8 +12,9 @@ export class StorageRepository {
     this.storage = window.localStorage
   }
 
-  getSelectedLeague(): League {
-    const item = this.storage.getItem(keys.leagues) || '{}'
+  getSelectedLeague(): League | null {
+    const item = this.storage.getItem(keys.leagues)
+    if (item === null) return null
     return toLeague(JSON.parse(item))
   }
 

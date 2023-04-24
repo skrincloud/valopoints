@@ -4,7 +4,7 @@ import { LocalRepository } from '../infrastructure/common/local-repository'
 export class LeagueService {
   constructor(private repository: LocalRepository) {}
 
-  getSelectedLeague(): League {
+  getSelectedLeague(): League | null {
     return this.repository.getSelectedLeague()
   }
 

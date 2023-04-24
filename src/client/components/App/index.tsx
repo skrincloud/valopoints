@@ -2,15 +2,17 @@ import { useEffect, useState } from 'react'
 import { League } from '../../../core'
 import { forge } from '../../dependencies'
 import Leagues from '../Leagues'
+import Matches from '../Matches'
+import Card from '../ui/Card'
+import { matches } from './matches'
 
 import './App.css'
-import Card from '../ui/Card'
 
 const { leagueService } = forge()
 
 function App() {
   const [leagues, setLeagues] = useState<League[]>()
-  const [selectedLeague, setSelectedLeague] = useState<League>(
+  const [selectedLeague, setSelectedLeague] = useState<League | null>(
     leagueService.getSelectedLeague(),
   )
 
@@ -41,12 +43,16 @@ function App() {
           image={selectedLeague.image}
           action={{
             text: 'Cambiar',
-            onClick: () => {},
+            onClick: () => setSelectedLeague(null),
           }}
         />
       )}
 
-      {leagues && <Leagues leagues={leagues} onLeagueClick={onLeagueClick} />}
+      {selectedLeague && <Matches matches={matches} />}
+
+      {leagues && selectedLeague === null && (
+        <Leagues leagues={leagues} onLeagueClick={onLeagueClick} />
+      )}
     </main>
   )
 }
