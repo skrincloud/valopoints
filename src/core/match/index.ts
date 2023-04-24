@@ -1,34 +1,11 @@
-import { Team } from './team'
+import { Team, TeamWithScore } from './team'
 
 export type MatchId = string
 
-enum MatchState {
+export enum MatchState {
   InProgress,
   Completed,
   Unstarted,
-}
-
-export enum Outcome {
-  Win,
-  Lose,
-  Draw,
-}
-
-export interface ScoreParams {
-  team: Team
-  score: number
-  outcome?: Outcome
-}
-
-class TeamWithScore extends Team {
-  readonly score: number
-  readonly outcome?: Outcome
-
-  constructor(params: ScoreParams) {
-    super(params.team)
-    this.score = params.score
-    this.outcome = params.outcome
-  }
 }
 
 interface MatchParams {

@@ -7,6 +7,18 @@ export interface TeamParams {
   slug: string
 }
 
+export enum Outcome {
+  Win,
+  Lose,
+  Draw,
+}
+
+export interface ScoreParams {
+  team: Team
+  score: number
+  outcome?: Outcome
+}
+
 export class Team {
   readonly id: TeamId
   readonly name: string
@@ -18,5 +30,16 @@ export class Team {
     this.name = params.name
     this.image = params.image
     this.slug = params.slug
+  }
+}
+
+export class TeamWithScore extends Team {
+  readonly score: number
+  readonly outcome?: Outcome
+
+  constructor(params: ScoreParams) {
+    super(params.team)
+    this.score = params.score
+    this.outcome = params.outcome
   }
 }
