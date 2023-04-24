@@ -4,15 +4,22 @@ import './Leagues.css'
 
 interface Props {
   leagues: League[]
+  onLeagueClick: (league: League) => void
 }
 
-function Leagues({ leagues }: Props) {
+function Leagues({ leagues, onLeagueClick }: Props) {
   return (
     <>
       <ul className="Leagues">
-        {leagues.map(function ({ id, name, image, slug }) {
+        {leagues.map(function (league) {
+          const { id, name, image, slug } = league
+
           return (
-            <li key={id} className="League">
+            <li
+              key={id}
+              className="League"
+              onClick={() => onLeagueClick(league)}
+            >
               <img className="League__image" src={image} alt={name} />
               <div className="League__content">
                 <span className="League__title">{name}</span>

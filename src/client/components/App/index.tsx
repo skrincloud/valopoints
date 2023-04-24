@@ -5,13 +5,23 @@ import Leagues from '../Leagues'
 
 import './App.css'
 
+const { leagueService } = forge()
+
 function App() {
   const [leagues, setLeagues] = useState<League[]>()
+  const [selectedLeague, setSelectedLeague] = useState<League>(
+    leagueService.getSelectedLeague(),
+  )
 
   useEffect(function () {
     const { getAllLeagues } = forge()
     getAllLeagues.execute().then(setLeagues)
   }, [])
+
+  function onLeagueClick(league: League) {
+    setSelectedLeague(league)
+    leagueService.saveSelectedLeague(league)
+  }
 
   return (
     <main>
@@ -22,7 +32,9 @@ function App() {
 
       <br />
 
-      {leagues && <Leagues leagues={leagues} />}
+      <pre>{selectedLeague && JSON.stringify(selectedLeague, null, 2)}</pre>
+
+      {leagues && <Leagues leagues={leagues} onLeagueClick={onLeagueClick} />}
     </main>
   )
 }
