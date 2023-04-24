@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { GetAllLeagues, League } from '../../../core'
-import { ApiLeagueRepository } from '../../infrastructure/api/league-repository'
+import { League } from '../../../core'
+import { forge } from '../../dependencies'
 import Leagues from '../Leagues'
 
 import './App.css'
@@ -9,8 +9,7 @@ function App() {
   const [leagues, setLeagues] = useState<League[]>()
 
   useEffect(function () {
-    const repository = new ApiLeagueRepository()
-    const getAllLeagues = new GetAllLeagues(repository)
+    const { getAllLeagues } = forge()
     getAllLeagues.execute().then(setLeagues)
   }, [])
 
