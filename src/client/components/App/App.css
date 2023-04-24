@@ -6,13 +6,15 @@
 
   color-scheme: light dark;
   color: #fff;
-  background-color: #0e0f0f;
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --background-color: #0e0f0f;
+  --background-soft-color: #1a1b1c;
   --accent: 235, 80, 95;
   --accent-gradient: linear-gradient(
     45deg,
@@ -31,6 +33,7 @@ main {
 h1 {
   font-size: 3rem;
   font-weight: 800;
+  padding: 0 1rem;
   margin: 0;
 }
 
