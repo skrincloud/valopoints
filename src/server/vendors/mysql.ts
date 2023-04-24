@@ -24,8 +24,9 @@ class MySQLDatabase {
   async ping() {
     try {
       await this.query('SELECT 1')
+      return true
     } catch (error) {
-      throw error
+      return false
     }
   }
 
