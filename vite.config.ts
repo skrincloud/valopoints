@@ -8,11 +8,12 @@ export default defineConfig({
   plugins: [react()],
   test: {
     setupFiles: 'test/setup.ts',
-    environment: 'jsdom',
+    reporters: 'verbose',
     coverage: {
       provider: 'c8',
+      extension: ['.ts', '.tsx'],
       reportsDirectory: './test/unit/coverage',
-      reporter: ['text', 'json', 'html'],
+      reporter: ['html-spa', 'text-summary'],
     },
   },
 })
