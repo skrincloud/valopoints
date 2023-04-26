@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "nodemon src/server/main.ts -w src/server",
     "start": "ts-node src/server/main.ts",
-    "build": "vite build"
+    "build": "vite build",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "axios": "^1.3.6",
@@ -19,14 +21,18 @@
     "vite-express": "*"
   },
   "devDependencies": {
+    "@testing-library/react": "^14.0.0",
     "@types/express": "^4.17.15",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.0.1",
+    "@vitest/coverage-c8": "^0.30.1",
     "dotenv": "^16.0.3",
+    "jsdom": "^21.1.1",
     "nodemon": "^2.0.20",
-    "vite": "^4.3.1"
+    "vite": "^4.3.1",
+    "vitest": "^0.30.1"
   },
   "license": "UNLICENSED",
   "private": true
