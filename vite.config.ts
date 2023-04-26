@@ -7,6 +7,8 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react()],
   test: {
+    setupFiles: 'test/setup.ts',
+    environment: 'jsdom',
     coverage: {
       provider: 'c8',
       reportsDirectory: './test/unit/coverage',
