@@ -32,12 +32,12 @@ jobs:
         uses: fjogeleit/http-request-action@v1
         if: ${{ github.ref_name == 'main' }}
         with:
-          url: ${{ env.PANEL_DEPLOY_PRODUCTION_URL }}
+          url: ${{ vars.PANEL_DEPLOY_PRODUCTION_URL }}
           method: POST
 
       - name: Deploy to QA
         uses: fjogeleit/http-request-action@v1
         if: ${{ github.ref_name == 'develop' }}
         with:
-          url: ${{ env.PANEL_DEPLOY_QA_URL }}
+          url: ${{ vars.PANEL_DEPLOY_QA_URL }}
           method: POST
