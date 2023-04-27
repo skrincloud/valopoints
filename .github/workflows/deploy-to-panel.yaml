@@ -1,4 +1,4 @@
-name: Launch to Panel
+name: Deploy to Panel
 
 on:
   push:
