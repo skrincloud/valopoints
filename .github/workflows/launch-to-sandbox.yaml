@@ -12,5 +12,5 @@ jobs:
       - name: Deploy to sandbox
         uses: fjogeleit/http-request-action@v1
         with:
-          url: ${{ env.PANEL_DEPLOY_SANDBOX_URL }}
+          url: ${{ $PANEL_DEPLOY_SANDBOX_URL }}
           method: POST
