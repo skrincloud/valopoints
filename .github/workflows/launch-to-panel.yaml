@@ -1,0 +1,43 @@
+name: Launch to Panel
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run unit tests
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run unit tests
+        run: npm test
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to production
+        uses: fjogeleit/http-request-action@v1
+        if: ${{ github.ref_name == 'main' }}
+        with:
+          url: ${{ env.PANEL_DEPLOY_PRODUCTION_URL }}
+          method: POST
+
+      - name: Deploy to QA
+        uses: fjogeleit/http-request-action@v1
+        if: ${{ github.ref_name == 'develop' }}
+        with:
+          url: ${{ env.PANEL_DEPLOY_QA_URL }}
+          method: POST
