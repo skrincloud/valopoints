@@ -2,14 +2,15 @@ import { GetAllLeagues, LeagueRepository } from '../core'
 import { ApiLeagueRepository } from './infrastructure/api/league-repository'
 import { StorageRepository } from './infrastructure/browser/storage-repository'
 import { LocalRepository } from './infrastructure/common/local-repository'
+import { MockLeagueRepository } from './infrastructure/mocks/mock-league-repository'
 import { LeagueService } from './services/league-service'
 
-export interface Container {
+interface Container {
   getAllLeagues: GetAllLeagues
   leagueService: LeagueService
 }
 
-export function forge(): Container {
+function getContainer(): Container {
   const leagueRepository: LeagueRepository = new ApiLeagueRepository()
   const localRepository: LocalRepository = new StorageRepository()
 
@@ -17,4 +18,17 @@ export function forge(): Container {
     getAllLeagues: new GetAllLeagues(leagueRepository),
     leagueService: new LeagueService(localRepository),
   }
+}
+
+function getTestContainer(): Partial<Container> {
+  return {
+    getAllLeagues: new GetAllLeagues(new MockLeagueRepository()),
+  }
+}
+
+export function forge(): Container {
+  if (import.meta.env.NODE_ENV === 'test') {
+    return { ...getContainer(), ...getTestContainer() }
+  }
+  return getContainer()
 }
