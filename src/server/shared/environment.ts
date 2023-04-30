@@ -1,5 +1,11 @@
 import dotenv from 'dotenv'
 
+const nodeEnvironments = ['development', 'test', 'production'] as const
+const serverEnvironments = ['local', 'sandbox', 'qa', 'production'] as const
+
+type NodeEnvironment = (typeof nodeEnvironments)[number]
+type StageEnvironment = (typeof serverEnvironments)[number]
+
 interface Environment {
   server: {
     port: number
@@ -13,6 +19,10 @@ interface Environment {
   }
   content: {
     url?: string
+  }
+  environment: {
+    node: NodeEnvironment
+    stage: StageEnvironment
   }
 }
 
@@ -32,6 +42,29 @@ export function parse(): Environment {
     },
     content: {
       url: process.env.CONTENT_URL,
-    }
+    },
+    environment: {
+      node: filter<NodeEnvironment>(
+        process.env.NODE_ENV,
+        nodeEnvironments,
+        'development',
+      ),
+      stage: filter<StageEnvironment>(
+        process.env.STAGE_ENV,
+        serverEnvironments,
+        'local',
+      ),
+    },
   }
+}
+
+function filter<T>(
+  value: string | undefined,
+  options: readonly string[],
+  defaultValue: T,
+): T {
+  if (value && options.includes(value)) {
+    return value as T
+  }
+  return defaultValue
 }
