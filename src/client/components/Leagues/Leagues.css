@@ -5,31 +5,3 @@
   margin: 1rem 0;
   padding: 0;
 }
-
-.League {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-}
-
-.League:hover {
-  background-color: var(--background-soft-color);
-  border-radius: 1rem;
-}
-
-.League__image {
-  width: 2rem;
-  height: 2rem;
-}
-
-.League__content {
-  display: flex;
-  flex-direction: column;
-  margin-left: 1rem;
-}
-
-.League__subtitle {
-  font-size: 0.8rem;
-  color: #a0a0a0;
-}

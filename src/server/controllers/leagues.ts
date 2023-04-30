@@ -1,11 +1,9 @@
 import { Request, Response } from 'express'
-import { ValorantLeagueRepository } from '../infrastructure/valorant/league-repository'
-import { GetAllLeagues } from '../../core'
+import { forge } from '../dependencies'
 
 export class LeagueController {
   static async getAll(request: Request, response: Response) {
-    const repository = new ValorantLeagueRepository()
-    const getAllLeagues = new GetAllLeagues(repository)
+    const { getAllLeagues } = forge()
     const leagues = await getAllLeagues.execute()
 
     response.json({

@@ -1,0 +1,16 @@
+name: Launch to Sandbox
+
+on:
+  push:
+    branches:
+      - sandbox
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to sandbox
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ vars.PANEL_DEPLOY_SANDBOX_URL }}
+          method: POST

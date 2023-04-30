@@ -43,6 +43,10 @@ p {
   color: #fefefe;
 }
 
+li {
+  list-style: none;
+}
+
 code {
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
@@ -59,10 +63,10 @@ strong {
 }
 
 .text-gradient {
-  background-image: var(--accent-gradient);
-  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-image: var(--accent-gradient);
+  background-clip: text;
   background-size: 400%;
   background-position: 0%;
 }
