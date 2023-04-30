@@ -1,14 +1,26 @@
 import { GetAllLeagues, LeagueRepository } from '../core'
 import { ValorantLeagueRepository } from './infrastructure/valorant/league-repository'
+import { parse } from './shared/environment'
 
-export interface Container {
+interface Container {
   getAllLeagues: GetAllLeagues
 }
 
-export function forge(): Container {
+function getContainer(): Container {
   const leagueRepository: LeagueRepository = new ValorantLeagueRepository()
 
   return {
     getAllLeagues: new GetAllLeagues(leagueRepository),
   }
+}
+
+function getTestContainer(): Partial<Container> {
+  return {}
+}
+
+export function forge(): Container {
+  if (parse().environment.node === 'test') {
+    return { ...getContainer(), ...getTestContainer() }
+  }
+  return getContainer()
 }
