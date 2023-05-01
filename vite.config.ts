@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react()],
   define: {
     APP_VERSION: JSON.stringify(process.env.npm_package_version),
-    APP_STAGE: JSON.stringify(JSON.stringify(process.env.VITE_STAGE)),
+    APP_STAGE: JSON.stringify(process.env.STAGE_ENV || 'local'),
   },
   test: {
     setupFiles: 'test/setup.ts',

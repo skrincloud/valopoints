@@ -50,7 +50,7 @@ export function parse(): Environment {
         'development',
       ),
       stage: filter<StageEnvironment>(
-        process.env.VITE_STAGE,
+        process.env.STAGE_ENV,
         serverEnvironments,
         'local',
       ),
