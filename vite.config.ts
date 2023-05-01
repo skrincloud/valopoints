@@ -6,6 +6,10 @@ import { defineConfig } from 'vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  define: {
+    APP_VERSION: JSON.stringify(process.env.npm_package_version),
+    APP_STAGE: JSON.stringify(process.env.STAGE_ENV || 'local'),
+  },
   test: {
     setupFiles: 'test/setup.ts',
     reporters: 'verbose',
