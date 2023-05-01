@@ -3,7 +3,7 @@ import { League } from '../../../core'
 import { forge } from '../../dependencies'
 import Leagues from '../Leagues'
 import Matches from '../Matches'
-import Stage from '../Stage'
+import Version from '../Version'
 import Card from '../ui/Card'
 import { matches } from './matches'
 
@@ -55,7 +55,7 @@ function App() {
         <Leagues leagues={leagues} onLeagueClick={onLeagueClick} />
       )}
 
-      <Stage />
+      <Version />
     </main>
   )
 }
