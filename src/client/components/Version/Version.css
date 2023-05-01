@@ -1,0 +1,14 @@
+.Version {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  opacity: 0.4;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+.Version--small {
+  font-size: 0.5rem;
+  text-transform: uppercase;
+}
