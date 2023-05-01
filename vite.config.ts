@@ -3,14 +3,12 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-console.log('vite.config.ts', process.env.STAGE_ENV)
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   define: {
     APP_VERSION: JSON.stringify(process.env.npm_package_version),
-    APP_STAGE: JSON.stringify(process.env.STAGE_ENV),
+    APP_STAGE: JSON.stringify(process.env.VITE_STAGE),
   },
   test: {
     setupFiles: 'test/setup.ts',

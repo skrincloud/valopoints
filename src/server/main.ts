@@ -8,8 +8,6 @@ function bootstrap() {
     server: { port },
   } = parse()
 
-  console.log('main.ts', process.env.STAGE_ENV)
-
   const app = express()
   app.use('/api', api)
 
