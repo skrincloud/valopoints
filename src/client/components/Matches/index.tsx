@@ -1,7 +1,7 @@
-import { Match, MatchState } from '../../../core'
+import { Match } from '../../../core'
 import CardMatch from '../Match/Match'
 
-import './index.css'
+import './Matches.css'
 
 interface Props {
   matches: Match[]
@@ -11,7 +11,7 @@ function Matches({ matches }: Props) {
   return (
     <ul className="Leagues">
       {matches.map(function (match) {
-        const { id, state, teams } = match
+        const { id, teams } = match
         const { home, away } = teams
         const names = { home: home.name, away: away.name }
         const images = { home: home.image, away: away.image }
@@ -19,7 +19,7 @@ function Matches({ matches }: Props) {
         const slug = { home: home.slug, away: away.slug }
 
         return (
-          <li key={id}>
+          <li className='League' key={id}>
             <CardMatch
               names={names}
               images={images}

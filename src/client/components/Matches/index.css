@@ -1,7 +1,0 @@
-ul:hover li:not(:hover) {
-    filter: brightness(50%);
-}
-
-ul li:hover {
-    filter: none;
-}
