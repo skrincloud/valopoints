@@ -1,5 +1,5 @@
 import { Match } from '../../../core'
-import CardMatch from '../Match/Match'
+import CardMatch from '../Match'
 
 import './Matches.css'
 
@@ -19,7 +19,7 @@ function Matches({ matches }: Props) {
         const slug = { home: home.slug, away: away.slug }
 
         return (
-          <li className='League' key={id}>
+          <li className="League" key={id}>
             <CardMatch
               names={names}
               images={images}
