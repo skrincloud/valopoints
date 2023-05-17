@@ -1,4 +1,4 @@
-.MatchCard {
+.Match {
     display: flex;
     gap: 20px;
     justify-content: space-between;
@@ -7,17 +7,17 @@
     border-radius: 1rem;
 }
 
-.MatchCard__team {
+.Match__team {
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
-.MatchCard__team:last-of-type {
+.Match__team:last-of-type {
     flex-direction: row-reverse;
 }
 
-.MatchCard__team_snippet {
+.Match__team_snippet {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -25,27 +25,27 @@
     gap: 0.5rem;
 }
 
-.MatchCard__team:last-of-type .MatchCard__team_snippet {
+.Match__team:last-of-type .Match__team_snippet {
     align-items: flex-start;
 }
 
-.MatchCard__team_snippet div {
+.Match__team_snippet div {
     display: flex;
 }
 
-.MatchCard__team_name {
+.Match__team_name {
     font-size: 1.3rem;
     line-height: 1.3rem;
 }
 
-.MatchCard__team_slug {
+.Match__team_slug {
     font-size: 0.65rem;
     line-height: 0.65rem;
     color: #a0a0a0;
     padding-top: 1rem;
 }
 
-.MatchCard__action {
+.Match__action {
     display: inline-block;
     font-size: 0.5rem;
     font-weight: 600;
@@ -64,56 +64,56 @@
     height: 18px;
 }
 
-.MatchCard__action:hover {
+.Match__action:hover {
     background-image: linear-gradient(45deg, #c22b49, #f2821a);
 }
 
-.MatchCard__action:active {
+.Match__action:active {
     transform: translateY(1px);
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
 }
 
-.MatchCard__image {
+.Match__image {
     height: 4.5rem;
     margin: auto 0 auto 1rem;
 }
 
-.MatchCard__team:last-of-type .MatchCard__image {
+.Match__team:last-of-type .Match__image {
     margin: auto 1rem auto 0;
 }
 
-.MatchCard__score {
+.Match__score {
     display: flex;
     flex-direction: column;
 }
 
-.MatchCard__score {
+.Match__score {
     width: 10rem;
     height: 100%;
     text-align: center;
     text-transform: uppercase;
 }
 
-.MarchCard__score_label {
+.Match__score_label {
     font-size: 0.6rem;
     line-height: 0.6rem;
     margin: 0.7rem 0 0.2rem 0;
     color: #a0a0a0;
 }
 
-.MarchCard__score_text {
+.Match__score_text {
     font-size: 1.7rem;
     line-height: 1.7rem;
 }
 
-.MatchCard__score_max {
+.Match__score_max {
     color: #c75a0a;
 }
 
-.MarchCard__score_text span:nth-child(1) {
+.Match__score_text span:nth-child(1) {
     margin-right: 0.5rem;
 }
 
-.MarchCard__score_text span:nth-child(2) {
+.Match__score_text span:nth-child(2) {
     margin-left: 0.5rem;
 }

@@ -1,5 +1,5 @@
 import { Match } from '../../../core'
-import CardMatch from '../Match'
+import MatchComponent from '../Match'
 
 import './Matches.css'
 
@@ -20,7 +20,7 @@ function Matches({ matches }: Props) {
 
         return (
           <li className="League" key={id}>
-            <CardMatch
+            <MatchComponent
               names={names}
               images={images}
               score={score}

@@ -28,9 +28,9 @@ interface Props {
 }
 
 function Match(props: Props) {
-  const { names, images, score, slug, action, onClick } = props
-  const className = classNames('MatchCard', {
-    'MatchCard--clickable': !!onClick,
+  const { names, images, score, slug, onClick } = props
+  const className = classNames('Match', {
+    'Match--clickable': !!onClick,
   })
 
   const homeName = names?.home || ''
@@ -44,41 +44,36 @@ function Match(props: Props) {
 
   return (
     <div className={className} onClick={onClick}>
-      <div className="MatchCard__team">
-        <div className="MatchCard__team_snippet">
+      <div className="Match__team">
+        <div className="Match__team_snippet">
           <div>
-            <span className="MatchCard__team_name">{homeName}</span>
-            <span className="MatchCard__team_slug">[ {homeSlug} ]</span>
+            <span className="Match__team_name">{homeName}</span>
+            <span className="Match__team_slug">[ {homeSlug} ]</span>
           </div>
-          <button className="MatchCard__action">Apostar</button>
+          <button className="Match__action">Apostar</button>
         </div>
-        <img className="MatchCard__image" src={homeImage} alt={homeName} />
+        <img className="Match__image" src={homeImage} alt={homeName} />
       </div>
-      <div className="MatchCard__score">
-        <span className="MarchCard__score_label">Final</span>
-        <span className="MarchCard__score_text">
-          {homeScore > awayScore ? (
-            <span className="MatchCard__score_max">{homeScore}</span>
-          ) : (
-            <span>{homeScore}</span>
-          )}
-          :
-          {awayScore > homeScore ? (
-            <span className="MatchCard__score_max">{awayScore}</span>
-          ) : (
-            <span>{awayScore}</span>
-          )}
+      <div className="Match__score">
+        <span className="Match__score_label">Final</span>
+        <span className="Match__score_text">
+          <span className={homeScore > awayScore ? 'Match__score_max' : ''}>
+            {homeScore}
+          </span>
+          <span className={homeScore < awayScore ? 'Match__score_max' : ''}>
+            {awayScore}
+          </span>
         </span>
       </div>
-      <div className="MatchCard__team">
-        <div className="MatchCard__team_snippet">
+      <div className="Match__team">
+        <div className="Match__team_snippet">
           <div>
-            <span className="MatchCard__team_slug">[ {awaySlug} ]</span>
-            <span className="MatchCard__team_name">{awayName}</span>
+            <span className="Match__team_slug">[ {awaySlug} ]</span>
+            <span className="Match__team_name">{awayName}</span>
           </div>
-          <button className="MatchCard__action">Apostar</button>
+          <button className="Match__action">Apostar</button>
         </div>
-        <img className="MatchCard__image" src={awayImage} alt={awayName} />
+        <img className="Match__image" src={awayImage} alt={awayName} />
       </div>
     </div>
   )
