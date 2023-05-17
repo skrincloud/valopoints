@@ -22,7 +22,7 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
-    gap: .5rem;
+    gap: 0.5rem;
 }
 
 .MatchCard__team:last-of-type .MatchCard__team_snippet {
@@ -39,18 +39,18 @@
 }
 
 .MatchCard__team_slug {
-    font-size: .65rem;
-    line-height: .65rem;
+    font-size: 0.65rem;
+    line-height: 0.65rem;
     color: #a0a0a0;
     padding-top: 1rem;
 }
 
 .MatchCard__action {
     display: inline-block;
-    font-size: .5rem;
+    font-size: 0.5rem;
     font-weight: 600;
-    line-height: .5rem;
-    padding: 0.1rem .1rem;
+    line-height: 0.5rem;
+    padding: 0.1rem 0.1rem;
     border-radius: 0.1rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -95,9 +95,9 @@
 }
 
 .MarchCard__score_label {
-    font-size: .6rem;
-    line-height: .6rem;
-    margin: .7rem 0 .2rem 0;
+    font-size: 0.6rem;
+    line-height: 0.6rem;
+    margin: 0.7rem 0 0.2rem 0;
     color: #a0a0a0;
 }
 
@@ -111,9 +111,9 @@
 }
 
 .MarchCard__score_text span:nth-child(1) {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 }
 
 .MarchCard__score_text span:nth-child(2) {
-    margin-left: .5rem;
+    margin-left: 0.5rem;
 }

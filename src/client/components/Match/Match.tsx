@@ -5,8 +5,8 @@ import './Match.css'
 
 function Match(props: MatchProps) {
     const { names, images, score, slug, action, onClick } = props
-    const className = classNames('MatchCard', { // -------------------------------------------------ver
-        'MatchCard--clickable': !!onClick, // --------------------------------------------------------ver
+    const className = classNames('MatchCard', {
+        'MatchCard--clickable': !!onClick,
     })
 
     const homeName = names?.home || ''
@@ -48,15 +48,6 @@ function Match(props: MatchProps) {
                 </div>
                 <img className="MatchCard__image" src={awayImage} alt={awayName} />
             </div>
-            {/* {action && action.text && (
-                <button
-                    className="MatchCard__action"
-                    onClick={action.onClick}
-                    type="button"
-                >
-                    {action.text}
-                </button>
-            )} */}
         </div>
     )
 }
