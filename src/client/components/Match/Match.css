@@ -1,0 +1,119 @@
+.Match {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    background-color: var(--background-soft-color);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.Match__team {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Match__team:last-of-type {
+    flex-direction: row-reverse;
+}
+
+.Match__team_snippet {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.Match__team:last-of-type .Match__team_snippet {
+    align-items: flex-start;
+}
+
+.Match__team_snippet div {
+    display: flex;
+}
+
+.Match__team_name {
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+}
+
+.Match__team_slug {
+    font-size: 0.65rem;
+    line-height: 0.65rem;
+    color: #a0a0a0;
+    padding-top: 1rem;
+}
+
+.Match__action {
+    display: inline-block;
+    font-size: 0.5rem;
+    font-weight: 600;
+    line-height: 0.5rem;
+    padding: 0.1rem 0.1rem;
+    border-radius: 0.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background-image: linear-gradient(45deg, #9e1c3e, #c75a0a);
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    width: 75px;
+    height: 18px;
+}
+
+.Match__action:hover {
+    background-image: linear-gradient(45deg, #c22b49, #f2821a);
+}
+
+.Match__action:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.Match__image {
+    height: 4.5rem;
+    margin: auto 0 auto 1rem;
+}
+
+.Match__team:last-of-type .Match__image {
+    margin: auto 1rem auto 0;
+}
+
+.Match__score {
+    display: flex;
+    flex-direction: column;
+}
+
+.Match__score {
+    width: 10rem;
+    height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.Match__score_label {
+    font-size: 0.6rem;
+    line-height: 0.6rem;
+    margin: 0.7rem 0 0.2rem 0;
+    color: #a0a0a0;
+}
+
+.Match__score_text {
+    font-size: 1.7rem;
+    line-height: 1.7rem;
+}
+
+.Match__score_max {
+    color: #c75a0a;
+}
+
+.Match__score_text span:nth-child(1) {
+    margin-right: 0.5rem;
+}
+
+.Match__score_text span:nth-child(2) {
+    margin-left: 0.5rem;
+}

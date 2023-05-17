@@ -1,0 +1,7 @@
+.Leagues:hover .League:not(:hover) {
+    filter: brightness(50%);
+}
+
+.Leagues .League:hover {
+    filter: none;
+}
