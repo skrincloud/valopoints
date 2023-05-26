@@ -1,4 +1,4 @@
-import { GetAllLeagues, LeagueRepository } from '../core'
+import { GetAllLeagues, GetMatchesFromLeague, LeagueRepository } from '../core'
 import { ApiLeagueRepository } from './infrastructure/api/league-repository'
 import { StorageRepository } from './infrastructure/browser/storage-repository'
 import { LocalRepository } from './infrastructure/common/local-repository'
@@ -8,6 +8,7 @@ import { LeagueService } from './services/league-service'
 interface Container {
   getAllLeagues: GetAllLeagues
   leagueService: LeagueService
+  getMatchesFromLeague: GetMatchesFromLeague
 }
 
 function getContainer(): Container {
@@ -17,6 +18,7 @@ function getContainer(): Container {
   return {
     getAllLeagues: new GetAllLeagues(leagueRepository),
     leagueService: new LeagueService(localRepository),
+    getMatchesFromLeague: new GetMatchesFromLeague(leagueRepository),
   }
 }
 
