@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { League, LeagueRepository, Match } from '../../../core'
 import { toLeagues } from './league-mapper'
+import { toMatches } from './match-mapper'
 
 export class ApiLeagueRepository implements LeagueRepository {
   async getAll(): Promise<League[]> {
@@ -9,7 +10,9 @@ export class ApiLeagueRepository implements LeagueRepository {
     return toLeagues(leagues)
   }
 
-  getMatches(league: string): Promise<Match[]> {
-    throw new Error('Method not implemented')
+  async getMatches(leagueId: string): Promise<Match[]> {
+    const response = await axios.get(`/api/leagues/${leagueId}/matches`)
+    const matches = response.data && response.data.data
+    return toMatches(matches)
   }
 }
